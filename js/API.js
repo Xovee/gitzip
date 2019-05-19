@@ -324,8 +324,7 @@ var _global = typeof window === 'object' && window.window === window
         }else{
             zip.generateAsync({type:"blob"})
             .then(function (content) {
-                filename = URLEncoder.encode(filename + ".zip", 'UTF-8')
-                saveAs(content, filename);
+                saveAs(content, filename + ".zip");
             }, function(error){
                 console.log(error);
             });
