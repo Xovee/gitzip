@@ -17,7 +17,6 @@
 </head>
 <body>
   <script>
-  url = window.location.search.substring(1,)
 
   setInterval(dots, 500)
 
@@ -49,7 +48,7 @@
     <div class='container'>
       <div class='row container'>
           <label for="src-url"><h4>输入文件/文件夹地址：</h4></label>
-          <textarea class="twelve columns" placeholder="例如：https://github.com/Xovee/uestc-course/tree/master/课程目录" id="src-url"></textarea>
+          <input class="u-full-width" type="url" placeholder="例如：https://github.com/Xovee/uestc-course/tree/master/课程目录/课程名" id="src-url">
           </label>
       </div>
 
@@ -66,7 +65,8 @@
   </div>
   
   <script>
-  if (url != '' && url != '?') {
+  url = window.location.search.substring(1,)
+  if (url != '') {
     GitZip.zipRepo(url);
     $('form').hide();
   } else {
@@ -75,14 +75,13 @@
 
   $('#d-button').click(function(){
     url = $('#src-url').val();
+    alert(url)
     GitZip.zipRepo(url);
-    $('#src-url').val('');
     $('#download').show();
     $('form').hide();
   })
 
   $('#return').click(function(){
-    $('#src-url'.val(''));
     $('form').show();
     $('#download').hide();
   })
