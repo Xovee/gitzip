@@ -1,20 +1,92 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>UESTC Course Resource Download</title>
-  <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-  <script type="text/javascript" src="js/FileSaver.min.js"></script>
-  <script type="text/javascript" src="js/jszip.min.js"></script>
-  <script type="text/javascript" src="js/API.js"></script>
+<!doctype html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a responsive product landing page.">
+    <title>UESTC Course Resource Download</title>
+    <link rel="icon" type="image/png" href="https://www.uestc.edu.cn/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/FileSaver.min.js"></script>
+    <script type="text/javascript" src="js/jszip.min.js"></script>
+    <script type="text/javascript" src="js/API.js"></script>
 </head>
 <body>
   <script>
   url = window.location.search.substring(1,)
 
-  GitZip.zipRepo(url)
+  setInterval(dots, 500)
+
+  function dots(){
+    if ($("#dot").text() == '......'){
+      $("#dot").text('.');
+    } else if ($("#dot").text() == '.'){
+      $("#dot").text('..');
+    } else if ($("#dot").text() == '..'){
+      $("#dot").text('...');
+    } else if ($("#dot").text() == '...'){
+      $("#dot").text('....');
+    } else if ($("#dot").text() == '....'){
+      $("#dot").text('.....');
+    } else if ($("#dot").text() == '.....'){
+      $("#dot").text('......');
+    }
+    
+  }
+  
 
   </script>
-  正在下载文件，请耐心等待！
+
+  <div class='container'>
+      <img class='u-max-full-width' src='./img/repo-banner.png'>
+  </div>
+
+  <form>
+    <div class='container'>
+      <div class='row container'>
+          <label for="src-url"><h4>输入文件/文件夹地址：</h4></label>
+          <textarea class="twelve columns" placeholder="例如：https://github.com/Xovee/uestc-course/tree/master/课程目录" id="src-url"></textarea>
+          </label>
+      </div>
+
+      <div class='row'>
+          <button id='d-button' class="button-primary"><h5>下载</h5></button>
+      </div>
+    </div>
+  </form>
+
+  <div id='download' class='container'>
+    <h1>资源正在下载中，请耐心等待！</h1>
+    <h1 id='dot'>......</h1>
+    <button id='return'><h5><strong>返回首页</strong></h5></button>
+  </div>
+  
+  <script>
+  if (url != '' && url != '?') {
+    GitZip.zipRepo(url);
+    $('form').hide();
+  } else {
+    $('#download').hide();
+  }
+
+  $('#d-button').click(function(){
+    url = $('#src-url').val();
+    GitZip.zipRepo(url);
+    $('#src-url').val('');
+    $('#download').show();
+    $('form').hide();
+  })
+
+  $('#return').click(function(){
+    $('#src-url'.val(''));
+    $('form').show();
+    $('#download').hide();
+  })
+  </script>
+
 </body>
 </html>
