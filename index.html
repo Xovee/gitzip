@@ -48,7 +48,7 @@
     <div class='container'>
       <div class='row container'>
           <label for="src-url"><h4>输入文件/文件夹地址：</h4></label>
-          <input class="u-full-width" type="url" placeholder="例如：https://github.com/Xovee/uestc-course/tree/master/课程目录/课程名" id="src-url">
+          <input class="u-full-width" type="text" placeholder="例如：https://github.com/Xovee/uestc-course/tree/master/课程目录/课程名" id="src-url">
           </label>
       </div>
 
@@ -65,20 +65,19 @@
   </div>
   
   <script>
-  url = window.location.search.substring(1,)
-  if (url != '') {
-    GitZip.zipRepo(url);
-    $('form').hide();
-  } else {
-    $('#download').hide();
+  window.onload = function(){
+    url = window.location.search.substring(1,)
+    if (url != '123') {
+      GitZip.zipRepo(url);
+      $('form').hide();
+    } else {
+      $('#download').hide();
+    }
   }
 
   $('#d-button').click(function(){
     url = $('#src-url').val();
-    alert(url)
-    GitZip.zipRepo(url);
-    $('#download').show();
-    $('form').hide();
+    window.location = 'https://xovee.github.io/gitzip/?' + url
   })
 
   $('#return').click(function(){
