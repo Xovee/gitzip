@@ -10,6 +10,14 @@
     font-size: 20px;
 }
 
+#git-button {
+    font-size: 20px;
+}
+
 button {
-    margin: 0 20px;
+    margin: 10px 20px;
+}
+
+input {
+    margin: 10px 20px;
 }
