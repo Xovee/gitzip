@@ -524,6 +524,7 @@ var _global = typeof window === 'object' && window.window === window
         })
         .catch(function(){
             progressCallback.call(callbackScope, 'error', 'Invalid URL: value is [' + pathToFolder.toString() + ']');
+            alert('invalid');
             throw "INVALID URL";
         });
     }

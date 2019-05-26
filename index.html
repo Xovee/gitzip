@@ -67,11 +67,13 @@
   <script>
   window.onload = function(){
     url = window.location.search.substring(1,)
-    if (url != '123') {
+    if (url != '' && url != '?') {
       GitZip.zipRepo(url);
+      $('#download').show();
       $('form').hide();
     } else {
       $('#download').hide();
+      $('from').show();
     }
   }
 
