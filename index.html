@@ -61,15 +61,23 @@
   <div id='download' class='container'>
     <h1>资源正在下载中，请耐心等待！</h1>
     <h1 id='dot'>......</h1>
-    <button id='return'><h5><strong>返回首页</strong></h5></button>
+    <button class='return'><h5><strong>返回首页</strong></h5></button>
+    <button class='back-github button-primary'><h5><strong>返回仓库</strong></h5></button>
+  </div>
+
+  <div id='error_box' class='container'>
+    <h1>地址似乎不对，请输入正确的地址！</h1>
+      <button class='return'><h5><strong>返回首页</strong></h5></button>
+      <button class='back-github button-primary'><h5><strong>返回仓库</strong></h5></button>
   </div>
   
   <script>
   window.onload = function(){
+    $('#error_box').hide();
+    $('#download').show();
     url = window.location.search.substring(1,)
     if (url != '' && url != '?') {
       GitZip.zipRepo(url);
-      $('#download').show();
       $('form').hide();
     } else {
       $('#download').hide();
@@ -80,13 +88,17 @@
   $('#d-button').click(function(){
     url = $('#src-url').val();
     GitZip.zipRepo(url);
+    
     $('form').hide();
     $('#download').show();
   })
 
-  $('#return').click(function(){
-    $('form').show();
-    $('#download').hide();
+  $('.return').click(function(){
+    window.location = 'https://xovee.github.io/gitzip/'
+  })
+
+  $('.back-github').click(function(){
+    window.location = 'https://github.com/Xovee/uestc-course'
   })
   </script>
 
