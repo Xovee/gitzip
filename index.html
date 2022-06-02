@@ -2,14 +2,14 @@
     <!-- This site is maded by http://getskeleton.com/. -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A layout example that shows off a responsive product landing page.">
-    <title>UESTC Course Resource Download</title>
+    <title>UESTC Course Resource Download Page</title>
     <link rel="icon" type="image/png" href="https://www.uestc.edu.cn/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/skeleton.css">
-    <link rel="stylesheet" href="css/custom.css">
+<!--    <link rel="stylesheet" href="css/skeleton.css">-->
+    <link rel="stylesheet" href="css/mvp.css">
+<!--    <link rel="stylesheet" href="css/custom.css">-->
 
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/FileSaver.min.js"></script>
@@ -17,73 +17,92 @@
     <script type="text/javascript" src="js/API.js"></script>
 </head>
 <body>
-  <script>
+  <header>
+      <figure>
+          <img src="uestc.png" width="50%">
+      </figure>
+      <h1>UESTC Course 资源下载页面</h1>
 
-  setInterval(dots, 500)
+      <section>
+      <form style="width: 80%;" id="input-address-form">
+          <label for="src-url"><h2>输入文件/文件夹地址：</h2></label>
+          <p>示例：<code>https://github.com/Xovee/uestc-course/tree/main/课程目录/云计算基础</code></p>
+          <input type="text" id="src-url" style="width: 80%;">
+          <section>
+              <a href="https://github.com/Xovee/uestc-course">
+                  <i>返回仓库</i>
+              </a>
+              <a href="#" id='d-button' >
+                  <b>下载资源</b>
+              </a>
+          </section>
+      </form>
 
-  function dots(){
-    if ($("#dot").text() == '......'){
-      $("#dot").text('.');
-    } else if ($("#dot").text() == '.'){
-      $("#dot").text('..');
-    } else if ($("#dot").text() == '..'){
-      $("#dot").text('...');
-    } else if ($("#dot").text() == '...'){
-      $("#dot").text('....');
-    } else if ($("#dot").text() == '....'){
-      $("#dot").text('.....');
-    } else if ($("#dot").text() == '.....'){
-      $("#dot").text('......');
-    }
-    
-  }
-  
+      <form style="width: 80%;" id="download-form">
+          <h2>资源正在下载中！请耐心等待。</h2>
+          <section>
+              <a href="https://github.com/Xovee/uestc-course">
+                  <i>返回仓库</i>
+              </a>
+              <a href="#">
+                  <i>访问 Xovee 主页</i>
+              </a>
+              <a href="index.html">
+                  <b>重新输入地址</b>
+              </a>
+          </section>
+      </form>
 
-  </script>
+      <form style="width: 80%;" id="error_box">
+          <h2>地址似乎不对！请重新输入。</h2>
+          <section>
+              <a href="index.html">
+                  <b>重新输入地址</b>
+              </a>
+          </section>
+      </form>
+      </section>
 
-  <div class='container'>
-      <img id='banner' class='u-max-full-width' src='./img/repo-banner.png'>
-  </div>
+      <section>
+          <aside>
+              <h2>Xovee Xu</h2>
+              <p><a href="https://xovee.cn" target="_blank">Xovee Xu</a> 是 <a href="https://github.com/Xovee/uestc-course" target="_blank">UESTC-Course</a> 的创建者和维护者。他现在是电子科技大学的一名计算机科学博士生。 </p>
+          </aside>
+          <aside>
+              <h2>资源贡献</h2>
+              <p>仓库的发展离不开大家的支持。贡献资源请参考该<a href="https://github.com/Xovee/uestc-course/blob/main/assets/%E8%B4%A1%E7%8C%AE%E6%8C%87%E5%8D%97.md" target="_blank">指南</a>。</p>
+          </aside>
+          <aside>
+              <h2>Be patient!</h2>
+              <p>资源打包需要时间，可能需要几秒到数分钟来加载某个课程资源，所以请耐心等待。您也可以选择性的快速下载单个文件。</p>
+          </aside>
+      </section>
 
-  <form>
-    <div class='container'>
-      <div class='row container'>
-          <label for="src-url"><h4>输入文件/文件夹地址：</h4></label>
-          <input class="u-full-width" type="text" placeholder="例如：https://github.com/Xovee/uestc-course/tree/main/课程目录/课程名" id="src-url">
-          </label>
-      </div>
+      <blockquote>
+          "If I have seen further it is by standing on the shoulders of Giants."
+          <footer>
+              Isaac Newton
+          </footer>
+      </blockquote>
 
-      <div class='row'>
-          <input type='button' id='git-button' class='back-github' value='返回仓库'>
-          <input type='button' id='d-button' class="button-primary" value="下载资源">
-      </div>
-    </div>
-  </form>
+      <footer>
+          © 2018-2022 Xovee Xu 徐增
+      </footer>
 
-  <div id='download' class='container'>
-    <h1>资源正在下载中，请耐心等待！</h1>
-    <h1 id='dot'>......</h1>
-    <button class='return'><h5><strong>返回首页</strong></h5></button>
-    <button class='back-github button-primary'><h5><strong>返回仓库</strong></h5></button>
-  </div>
 
-  <div id='error_box' class='container'>
-    <h1>地址似乎不对，请输入正确的地址！</h1>
-      <button class='return'><h5><strong>返回首页</strong></h5></button>
-      <button class='back-github button-primary'><h5><strong>返回仓库</strong></h5></button>
-  </div>
-  
+  </header>
+
   <script>
   window.onload = function(){
     $('#error_box').hide();
-    $('#download').show();
+    $('#download-form').show();
     url = window.location.search.substring(1,)
     if (url != '' && url != '?') {
       GitZip.zipRepo(url);
-      $('form').hide();
+      $('#input-address-form').hide();
     } else {
-      $('#download').hide();
-      $('from').show();
+      $('#download-form').hide();
+      $('#input-address-form').show();
     }
   }
 
@@ -91,17 +110,11 @@
     url = $('#src-url').val();
     GitZip.zipRepo(url);
     
-    $('form').hide();
-    $('#download').show();
+    $('#input-address-form').hide();
+    $('#download-form').show();
+
   })
 
-  $('.return').click(function(){
-    window.location = 'https://xovee.github.io/gitzip/'
-  })
-
-  $('.back-github').click(function(){
-    window.location = 'https://github.com/Xovee/uestc-course'
-  })
   </script>
 
 </body>

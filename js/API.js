@@ -525,7 +525,7 @@ var _global = typeof window === 'object' && window.window === window
         .catch(function(){
             progressCallback.call(callbackScope, 'error', 'Invalid URL: value is [' + pathToFolder.toString() + ']');
             $('#error_box').show();
-            $('#download').hide();
+            $('#download-form').hide();
             throw "INVALID URL";
         });
     }
