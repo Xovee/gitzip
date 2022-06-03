@@ -92,8 +92,8 @@
 
   </header>
 
-  <script>
-  window.onload = function(){
+    <script>
+    window.onload = function(){
     $('#error_box').hide();
     $('#download-form').show();
     url = window.location.search.substring(1,)
@@ -104,18 +104,19 @@
       $('#download-form').hide();
       $('#input-address-form').show();
     }
-  }
+    }
 
-  $('#d-button').click(function(){
+    $('#d-button').click(function(){
     url = $('#src-url').val();
     GitZip.zipRepo(url);
-    
+
     $('#input-address-form').hide();
     $('#download-form').show();
 
-  })
+    })
 
-  <!-- Google Analytics -->
+    </script>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKRTC1TG5F"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -124,8 +125,6 @@
 
         gtag('config', 'G-RKRTC1TG5F');
     </script>
-
-  </script>
 
 </body>
 </html>
