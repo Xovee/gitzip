@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/normalize.css">
 <!--    <link rel="stylesheet" href="css/skeleton.css">-->
     <link rel="stylesheet" href="css/mvp.css">
-<!--    <link rel="stylesheet" href="css/custom.css">-->
+    <link rel="stylesheet" href="css/custom.css">
 
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/FileSaver.min.js"></script>
@@ -39,7 +39,14 @@
       </form>
 
       <form style="width: 80%;" id="download-form">
-          <h2>资源正在下载中！请耐心等待。</h2>
+          <section>
+              <div class="loader"></div>
+          </section>
+
+          <section>
+              <h2>资源正在下载中！请耐心等待。</h2>
+          </section>
+
           <section>
               <a href="https://github.com/Xovee/uestc-course">
                   <i>返回仓库</i>
