@@ -93,11 +93,16 @@
       </blockquote>
 
       <footer>
-          © 2019-2024 Xovee Xu 徐增
+          © 2019-<span id='current-year'></span> Xovee Xu 徐增
       </footer>
 
 
   </header>
+      <script>
+        // copyright year
+        curYear = (new Date).getFullYear();
+        document.getElementById('current-year').innerHTML = curYear;
+      </script>
 
     <script>
     window.onload = function(){
